@@ -10,5 +10,4 @@ public class RestaurantApplication {
 		SpringApplication.run(RestaurantApplication.class, args);
 		System.out.println("helloo world!!");
 	}
-
 }
