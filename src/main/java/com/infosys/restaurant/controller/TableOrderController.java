@@ -11,8 +11,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,7 @@ import static java.util.Map.entry;
 
 @RestController
 @RequestMapping("tableOrder")
+@Validated
 public class TableOrderController {
 
     @Autowired
@@ -46,7 +49,7 @@ public class TableOrderController {
     }
 
     @PostMapping
-    public ResponseEntity<TableOrderDTO> saveOrder(@RequestBody TableOrderDTO tableOrderDTO) throws RestaurantServiceException {
+    public ResponseEntity<TableOrderDTO> saveOrder(@Valid @RequestBody TableOrderDTO tableOrderDTO) throws RestaurantServiceException {
         logger.info("trying to place table order");
         TableOrderDTO orderDTO = tableOrderService.save(tableOrderDTO);
         logger.info("table order successfully placed");

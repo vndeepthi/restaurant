@@ -1,11 +1,17 @@
 package com.infosys.restaurant.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class TableOrderDTO {
 
+    @NotNull
+    @Max(value = 10)
     private Integer id;
 
+    @NotEmpty
     private List<OrderItemDTO> orderItems;
 
     public void setId(Integer id) {

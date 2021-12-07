@@ -1,11 +1,15 @@
 package com.infosys.restaurant.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class OrderItemDTO {
 
     private Integer id;
 
+    @NotBlank
     private String item;
 
+    @NotBlank
     private Integer quantity;
 
     public OrderItemDTO(Integer id, String item, Integer quantity) {

@@ -8,7 +8,6 @@ import java.util.List;
 public class TableOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
     private Integer id;
 
