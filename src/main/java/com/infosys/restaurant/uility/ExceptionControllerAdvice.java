@@ -18,8 +18,8 @@ public class ExceptionControllerAdvice {
 
     @ExceptionHandler(RestaurantServiceException.class)
     public ResponseEntity<ErrorInfo> restaurantExceptionHandler(RestaurantServiceException exception){
-        ErrorInfo errorInfo = new ErrorInfo(exception.getMessage(), INTERNAL_SERVER_ERROR.value(), LocalDateTime.now());
-        return new ResponseEntity<>(errorInfo, INTERNAL_SERVER_ERROR);
+        ErrorInfo errorInfo = new ErrorInfo(exception.getMessage(), BAD_REQUEST.value(), LocalDateTime.now());
+        return new ResponseEntity<>(errorInfo, BAD_REQUEST);
     }
 
     @ExceptionHandler({ MethodArgumentNotValidException.class, ConstraintViolationException.class })
